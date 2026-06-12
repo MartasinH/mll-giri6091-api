@@ -3,7 +3,7 @@ import {  ITaskRepositoryToken } from "../domain/task.repository.interface";
 import type { ITaskRepository } from "../domain/task.repository.interface";
 
 
-export class GetTaskByIdUseCase {
+export class DeleteTaskUseCase {
 
     constructor(
         @Inject (ITaskRepositoryToken)
