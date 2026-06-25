@@ -1,13 +1,13 @@
-//! Dealer (contrarador del repositorio)
-import {Task} from './task.entity';
+//! Dealer (contratador del repositorio)
+import { Task } from './task.entity';
 
-export interface ITaskRepository{
+export interface ITaskRepository {
     create(task: Task): Promise<Task>;
     findAll(): Promise<Task[]>;
-    findById(id: string): Promise<Task | null>;
+    findById(id: number): Promise<Task | null>;
     update(task: Task): Promise<Task>;
-    delete(id: string): Promise<boolean>;
+    delete(id: number): Promise<boolean>;
 }
 
-// Token para la inyeccion de dependencias 
-export const ITaskRepositoryToken = Symbol ('ITaskRepository');
+// Token para la inyección de dependencias
+export const ITaskRepositoryToken = Symbol('ITaskRepository');

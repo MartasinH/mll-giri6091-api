@@ -1,8 +1,12 @@
 import { Module } from '@nestjs/common';
-import { Taskmodule } from './tasks/domain/infrastructure/controllers/persistence/task.module';
+import { TasksModule } from './tasks/infrastructure/tasks.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [Taskmodule],
-
+  imports: [
+    PrismaModule,
+    TasksModule
+  ],
 })
+
 export class AppModule {}

@@ -6,38 +6,34 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-
   app.setGlobalPrefix('api');
 
   app.enableVersioning({
-    type:VersioningType.URI,
+    type: VersioningType.URI,
     defaultVersion: '1'
-    })
+  });
 
-  app.useGlobalPipes(new ValidationPipe({
+  app.useGlobalPipes( new ValidationPipe({
     whitelist: true,
-    forbidNonWhitelisted:true,
+    forbidNonWhitelisted: true,
     transform: true
+  }));
 
-}));
-  app.setGlobalPrefix('api');
 
   app.enableCors();
 
-  // configuracion de swagger docs
-  const config= new DocumentBuilder ()
-  .setTitle('Task Manager API')
-  .setDescription('Gestion de tareas')
-  .setVersion('1.0')
-  .addTag('Task') //agrupar los enpoints bajo la teqiqueta task
-  .build();
-
-  const document = SwaggerModule.createDocument(app,config);
-  SwaggerModule.setup('api/docs',app,document);
+  // Configuración de swagger docs
+  const config = new DocumentBuilder()
+    .setTitle('Task Manager API')
+    .setDescription('Gestión de tareas')
+    .setVersion('1.0')
+    .addTag('Tasks') // Agrupar los endpoints bajo la etiqueta 'Tasks'
+    .build();
+  
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api/docs', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
-  console.log("API IS RUNNING on:http:localhots:300/api/v1");
+  console.log("API is running on: http:localhost:3000/api/v1");
 }
 bootstrap();
-
-// npm i --save @nestjs/swagger
