@@ -9,4 +9,4 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin123
-      - POSTGRES_DB=kjtm_db
+      - POSTGRES_DB=mll_db

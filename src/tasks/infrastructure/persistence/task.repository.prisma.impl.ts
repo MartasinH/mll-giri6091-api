@@ -39,7 +39,7 @@ constructor(private readonly prisma: PrismaService) {}
             data:{
                 title: task.title,
                 description: task.description,
-                status: task.status
+                status: task.status,
             }
         }) as Task;
         return update;
